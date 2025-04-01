@@ -1,26 +1,23 @@
-// JavaScript for Interactive Simulation
-
 document.addEventListener("DOMContentLoaded", () => {
   const philosophers = document.querySelectorAll(".philosopher");
   const stateNames = ["thinking", "hungry", "eating"];
-  const forks = Array(philosophers.length).fill(true); // Fork availability
-  const philosopherStates = Array(philosophers.length).fill(0); // All start thinking
+  const forks = Array(philosophers.length).fill(true);
+  const philosopherStates = Array(philosophers.length).fill(0);
 
   const updatePhilosopher = (index) => {
     const leftFork = index;
     const rightFork = (index + 1) % philosophers.length;
 
     if (philosopherStates[index] === 0) {
-      philosopherStates[index] = 1; // Thinking -> Hungry
+      philosopherStates[index] = 1;
     } else if (philosopherStates[index] === 1 && forks[leftFork] && forks[rightFork]) {
-      forks[leftFork] = forks[rightFork] = false; // Hungry -> Eating
+      forks[leftFork] = forks[rightFork] = false;
       philosopherStates[index] = 2;
     } else if (philosopherStates[index] === 2) {
-      forks[leftFork] = forks[rightFork] = true; // Eating -> Thinking
+      forks[leftFork] = forks[rightFork] = true;
       philosopherStates[index] = 0;
     }
 
-    // Update display
     philosophers[index].className = `philosopher ${stateNames[philosopherStates[index]]}`;
     philosophers[index].textContent = `Philosopher ${index + 1} is ${stateNames[philosopherStates[index]]}`;
   };
