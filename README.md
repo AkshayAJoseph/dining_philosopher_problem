@@ -11,7 +11,7 @@ This project demonstrates the **Dining Philosophers Problem**, a classic synchro
 ## Project Structure
 
 ```
-c:\Users\aksha\OneDrive\Desktop\projects\diningphil\
+\diningphil\
 │
 ├── index.html       # Main HTML file for the project
 ├── style.css        # CSS file for styling
@@ -22,8 +22,7 @@ c:\Users\aksha\OneDrive\Desktop\projects\diningphil\
 
 ## How to Use
 
-1. Open `index.html` in a web browser.
-2. Navigate through the sections:
+1. Navigate through the sections:
    - **Home**: Introduction to the Dining Philosophers Problem.
    - **Problem Statement**: Explanation of the problem with a diagram.
    - **Solutions & Strategies**: Overview of strategies to prevent deadlock.
@@ -38,15 +37,7 @@ The C code uses `pthread` and `semaphore` libraries to simulate the philosophers
 ### Python Implementation
 The Python code uses `threading` and `Semaphore` to achieve the same functionality.
 
-## Screenshots
-
 ### Interactive Simulation
 ![Interactive Simulation](dining_philosophers_diagram.png)
 
-## Author
 
-Created by **Akshay Joseph, MGP23CS017**.
-
-## License
-
-This project is licensed under the MIT License. Feel free to use and modify it as needed.
