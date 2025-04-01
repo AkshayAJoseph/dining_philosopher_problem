@@ -1,0 +1,213 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fafafa;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #333;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    background: #333;
+    padding: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Diagram Styling */
+.diagram {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.diagram svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.caption {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.illustration {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Simulation Area */
+#simulationArea {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    border: 2px dashed #ccc;
+    border-radius: 50%;
+}
+
+.philosopher {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f4f4;
+    text-align: center;
+    transition: background-color 0.5s;
+}
+
+#phil0 {
+    top: 15%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+#phil1 {
+    top: 55%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+
+#phil2 {
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#phil3 {
+    top: 55%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+
+#phil4 {
+    top: 15%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+/* Philosopher States */
+.thinking {
+    background-color: #d9edf7;
+}
+
+.hungry {
+    background-color: #fcf8e3;
+}
+
+.eating {
+    background-color: #dff0d8;
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #003f7f;
+    transform: scale(0.95);
+}
+
+select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+select:hover {
+    border-color: #007bff;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    .philosopher {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #simulationArea {
+        flex-direction: column;
+        align-items: center;
+    }
+}

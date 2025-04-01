@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dining Philosophers Problem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#problem">Problem Statement</a></li>
+      <li><a href="#solutions">Solutions & Strategies</a></li>
+      <li><a href="#simulation">Interactive Simulation</a></li>
+      <li><a href="#code">Implementation Code</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <h1>Dining Philosophers Problem</h1>
+    <p>The Dining Philosophers Problem is a classic synchronization problem in concurrent programming...</p>
+  </section>
+
+  <section id="problem">
+    <h2>Problem Statement</h2>
+    <p>Five philosophers sit around a circular table. Between each pair is a fork...</p>
+    <img src="dining_philosophers_diagram.png" alt="Dining Philosophers Illustration" class="illustration">
+  </section>
+
+  <section id="solutions">
+    <h2>Solutions & Strategies</h2>
+    <p>To prevent deadlock, strategies include resource hierarchy, arbitrator solutions, and semaphores...</p>
+  </section>
+
+  <section id="simulation">
+    <h2>Interactive Simulation</h2>
+    <p>Click the button below to start the simulation and observe how philosophers avoid deadlock.</p>
+    <button id="startSimulation">Start Simulation</button>
+    <div id="simulationArea">
+      <div class="philosopher" id="phil0">Philosopher 1</div>
+      <div class="philosopher" id="phil1">Philosopher 2</div>
+      <div class="philosopher" id="phil2">Philosopher 3</div>
+      <div class="philosopher" id="phil3">Philosopher 4</div>
+      <div class="philosopher" id="phil4">Philosopher 5</div>
+    </div>
+  </section>
+
+  <section id="code">
+    <h2>Dining Philosophers Code</h2>
+    <p>Select a language to view the implementation:</p>
+    <select id="languageSelector">
+      <option value="c">C</option>
+      <option value="python">Python</option>
+    </select>
+    <pre id="codeDisplay"><code>
+#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;semaphore.h&gt;
+
+#define N 5
+sem_t forks[N];
+
+void* philosopher(void* num) {
+    int id = *(int*)num;
+    while (1) {
+        printf("Philosopher %d is thinking\n", id);
+        sem_wait(&forks[id]);
+        sem_wait(&forks[(id + 1) % N]);
+        printf("Philosopher %d is eating\n", id);
+        sem_post(&forks[id]);
+        sem_post(&forks[(id + 1) % N]);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t philosophers[N];
+    int ids[N];
+    for (int i = 0; i < N; i++) {
+        sem_init(&forks[i], 0, 1);
+        ids[i] = i;
+    }
+    for (int i = 0; i < N; i++) {
+        pthread_create(&philosophers[i], NULL, philosopher, &ids[i]);
+    }
+    for (int i = 0; i < N; i++) {
+        pthread_join(philosophers[i], NULL);
+    }
+    return 0;
+}
+    </code></pre>
+  </section>
+
+  <footer>
+    <p>Dining Philosophers Problem</p>
+    <p>Created by Akshay Joseph, MGP23CS017</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
